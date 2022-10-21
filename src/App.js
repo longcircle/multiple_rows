@@ -34,6 +34,10 @@ function CarouselTesT() {
 
   return (
     <div className="container">
+      <div className="module_title">
+        <h2>믿고 보는 맛집 리스트</h2>
+        <a href="about:blank">리스트 더보기</a>
+      </div>
       <button className="left" onClick={Button} value={0} ref={btn1}></button>
       <button className="right" onClick={Button} value={-1} ref={btn2}></button>
       <div className="body">
