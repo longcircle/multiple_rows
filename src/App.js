@@ -9,7 +9,6 @@ function CarouselTesT() {
 
   useEffect(() => {
     container_Carousel.current.style.transform = `translateX(${nowX}px)`;
-    console.log(`it's work ${nowX}`);
   }, [nowX]);
 
   // useState 말고 useEffect를 이용해야할듯.
@@ -23,7 +22,6 @@ function CarouselTesT() {
       Dot2.current.style.backgroundColor = "orange";
       Dot1.current.style.backgroundColor = "";
     }
-    // console.log(`it's work ${nowX}`);
   };
 
   return (
