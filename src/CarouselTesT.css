@@ -119,7 +119,7 @@
 
 .left {
   left: -5px;
-  display: none;
+  /* display: none; */
   background-position: -935px -230px;
 }
 

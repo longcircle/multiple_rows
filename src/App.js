@@ -3,8 +3,6 @@ import { useEffect, useRef, useState } from "react";
 
 function CarouselTesT() {
   const container_Carousel = useRef();
-  const btn1 = useRef();
-  const btn2 = useRef();
   const Dot1 = useRef();
   const Dot2 = useRef();
   const [nowX, setNowX] = useState(0);
@@ -18,14 +16,10 @@ function CarouselTesT() {
   const Button = (e) => {
     if (parseInt(e.target.value) === 0) {
       setNowX((prop) => 0);
-      btn1.current.style.display = "none";
-      btn2.current.style.display = "block";
       Dot1.current.style.backgroundColor = "orange";
       Dot2.current.style.backgroundColor = "";
     } else if (parseInt(e.target.value) === -1) {
       setNowX((prop) => e.target.value * 960);
-      btn2.current.style.display = "none";
-      btn1.current.style.display = "block";
       Dot2.current.style.backgroundColor = "orange";
       Dot1.current.style.backgroundColor = "";
     }
@@ -38,8 +32,12 @@ function CarouselTesT() {
         <h2>믿고 보는 맛집 리스트</h2>
         <a href="about:blank">리스트 더보기</a>
       </div>
-      <button className="left" onClick={Button} value={0} ref={btn1}></button>
-      <button className="right" onClick={Button} value={-1} ref={btn2}></button>
+      {nowX === 0 ? (
+        <button className="right" onClick={Button} value={-1}></button>
+      ) : (
+        <button className="left" onClick={Button} value={0}></button>
+      )}
+
       <div className="body">
         <div className="container_Carousel" ref={container_Carousel}>
           <div className="inner">
