@@ -35,7 +35,7 @@ const App = () => {
       <List title="에디터가 선정한 식당" info={Editor} />
       <List title="TV에 나온 식당" info={TV} />
       <List title="평점이 높은 인기 식당" info={HighRate} />
-      <Carousel title="지역별 인기 맛집" info={Info3} hidden="true" />
+      <Carousel title="지역별 인기 맛집" info={Info3} hidden={true} />
       <Carousel title="메뉴별 인기 맛집" info={Info2}></Carousel>
     </div>
   );

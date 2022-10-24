@@ -20,6 +20,7 @@ const BodyBlock = styled.div`
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  width: 88.6vw;
   height: 501px;
   margin: 10px 90px auto;
 `;
@@ -40,6 +41,7 @@ const Carousel = ({ title, more, info, hidden }) => {
   const Dot2 = useRef();
   const Body = useRef();
   const [nowX, setNowX] = useState(0);
+  // console.log(InnerContainer);
 
   // let width = Body.current.offsetWidth;
 
@@ -70,8 +72,8 @@ const Carousel = ({ title, more, info, hidden }) => {
       )}
       <BodyBlock ref={Body}>
         <CarouselBlock ref={container_Carousel}>
-          {info.map((info) => (
-            <InnerContainer key={info.textId} info={info} />
+          {info.map((content) => (
+            <InnerContainer key={content.textId} info={content} />
           ))}
         </CarouselBlock>
       </BodyBlock>
