@@ -41,6 +41,7 @@ const ContentBlock = styled.div`
     }
     & span {
       color: #555;
+      font-size: 20px;
     }
     & p {
       font-size: small;
@@ -48,7 +49,7 @@ const ContentBlock = styled.div`
     }
     & img {
       position: absolute;
-      height: 264px;
+      height: 249px;
       width: 100%;
       display: block;
       /* cursor: pointer; */
