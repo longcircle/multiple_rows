@@ -27,7 +27,9 @@ const List = ({ title, children, info }) => {
       <ModuleTitle title={title} />
       <Wrapper>
         {info.map((content) => (
-          <Contents ket={content.textId} info={content} />
+          <Contents ket={content.textId} info={content}>
+            {children}
+          </Contents>
         ))}
       </Wrapper>
     </Container>
