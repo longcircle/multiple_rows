@@ -2,7 +2,7 @@ export const EatDeal = [
   {
     textId: 1,
     title: "엠와이씨",
-    addr: "왕십리/성동 - 카페/디저트",
+    addr: "왕십리 / 성동 - 카페 / 디저트",
     src: "https://mp-seoul-image-production-s3.mangoplate.com/9239_1635579493094431.jpg?fit=around|362:362&crop=362:362;*,*&output-format=jpg&output-quality=80",
   },
   {
