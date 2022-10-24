@@ -1,6 +1,5 @@
 import styled from "styled-components";
-
-import React from "react";
+import React, { useRef } from "react";
 
 const InnerBlock = styled.div`
   position: relative;
@@ -22,6 +21,12 @@ const InnerBlock = styled.div`
     color: white;
     font-size: 0.7rem;
     text-decoration-line: none;
+    & span {
+      font-size: 1.7rem;
+    }
+    & p {
+      font-size: 1rem;
+    }
   }
   &.title {
     font-weight: bold;
@@ -33,7 +38,7 @@ const InnerBlock = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(80%);
+    filter: brightness(60%);
   }
   & img:not(:first-child) {
     margin-top: 29px;
@@ -45,7 +50,7 @@ const InnerContainerBlock = styled.div`
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  width: 14.1%;
+  width: 28vw;
   height: 100%;
   margin-left: 29px;
   /* &:not(:nth-child(3n)) {
@@ -53,21 +58,27 @@ const InnerContainerBlock = styled.div`
   } */
 `;
 
-const InnerContainer = ({ src1, src2, alt }) => {
+const InnerContainer = ({ src1, src2, alt, children }) => {
+  const title1 = useRef();
+  const title2 = useRef();
+  const addr1 = useRef();
+  const addr2 = useRef();
+  // const [name1, addr1] = { children };
+  // const [name2, addr2] = { children };
   return (
     <InnerContainerBlock>
       <InnerBlock>
         <img src={src1} alt={alt} />
         <a href="about:blank">
-          <span className="title"></span>
-          <p></p>
+          <span ref={title1}>{children[0]}</span>
+          <p ref={addr1}>{children[1]}</p>
         </a>
       </InnerBlock>
       <InnerBlock>
         <img src={src2} alt={alt} />
         <a href="about:blank">
-          <span className="title"></span>
-          <p></p>
+          <span ref={title2}></span>
+          <p ref={addr2}></p>
         </a>
       </InnerBlock>
     </InnerContainerBlock>

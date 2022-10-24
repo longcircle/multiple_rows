@@ -8,7 +8,7 @@ const Btn = styled.button`
   background-color: transparent;
   width: 28px;
   height: 45px;
-  transform: translateY(-5%);
+  transform: translateY(-35%);
   cursor: pointer;
   opacity: 0.5;
   background-image: url(https://mp-seoul-image-production-s3.mangoplate.com/web/resources/2018022864551sprites_desktop.png);

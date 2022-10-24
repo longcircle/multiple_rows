@@ -18,8 +18,11 @@ const ContentBlock = styled.div`
     transform: translateX(-50%);
     width: 100%;
     text-decoration-line: none;
+    text-decoration: none;
+    color: black;
     font-size: larger;
     font-weight: normal;
+
     & p {
       font-size: small;
     }
@@ -31,22 +34,11 @@ const ContentBlock = styled.div`
   }
 `;
 
-const Badge = styled.i`
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  z-index: 1;
-  width: 14%;
-  padding-bottom: 14%;
-  background-size: cover;
-  background-image: url("https://mp-seoul-image-production-s3.mangoplate.com/badge_pictures/r-i0n1w_hdfo4vlf.png");
-`;
-
-const Contents = ({ src, title, info }) => {
+const Contents = ({ src, title, info, children }) => {
   return (
     <ContentBlock>
       <a href="">
-        <Badge />
+        {children}
         <img src={src} />
         <div>
           <span>{title}</span>
