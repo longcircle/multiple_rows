@@ -23,10 +23,22 @@ const Btn = styled.button`
       left: 45px;
       background-position: -935px -230px;
     `}
+  ${(props) =>
+    props.hidden &&
+    css`
+      display: none;
+    `}
 `;
 
-const SlideBtn = ({ onClick, value, direction }) => {
-  return <Btn onClick={onClick} value={value} direction={direction} />;
+const SlideBtn = ({ onClick, value, direction, hidden }) => {
+  return (
+    <Btn
+      onClick={onClick}
+      value={value}
+      direction={direction}
+      hidden={hidden}
+    />
+  );
 };
 
 export default SlideBtn;

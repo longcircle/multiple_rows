@@ -58,27 +58,22 @@ const InnerContainerBlock = styled.div`
   } */
 `;
 
-const InnerContainer = ({ src1, src2, alt, children }) => {
-  const title1 = useRef();
-  const title2 = useRef();
-  const addr1 = useRef();
-  const addr2 = useRef();
-  // const [name1, addr1] = { children };
-  // const [name2, addr2] = { children };
+const InnerContainer = ({ info }) => {
+  const { title1, title2, addr1, addr2, src1, src2 } = info;
   return (
     <InnerContainerBlock>
       <InnerBlock>
-        <img src={src1} alt={alt} />
+        <img src={src1} alt="" />
         <a href="about:blank">
-          <span ref={title1}>{children[0]}</span>
-          <p ref={addr1}>{children[1]}</p>
+          <span>{title1}</span>
+          <p>{addr1}</p>
         </a>
       </InnerBlock>
       <InnerBlock>
-        <img src={src2} alt={alt} />
+        <img src={src2} alt="" />
         <a href="about:blank">
-          <span ref={title2}></span>
-          <p ref={addr2}></p>
+          <span>{title2}</span>
+          <p>{addr2}</p>
         </a>
       </InnerBlock>
     </InnerContainerBlock>

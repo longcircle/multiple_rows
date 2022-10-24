@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const DotBtnContainer = styled.div`
   position: absolute;
@@ -21,12 +21,17 @@ const DotBtnContainer = styled.div`
     height: 10px;
     margin: 5px;
   }
+  ${(props) =>
+    props.hidden &&
+    css`
+      display: none;
+    `}
 `;
 
-const DotBtn = ({ ref1, ref2 }) => {
+const DotBtn = ({ ref1, ref2, hidden }) => {
   return (
-    <DotBtnContainer>
-      <button ref={ref1} />
+    <DotBtnContainer hidden={hidden}>
+      <button ref={ref1} style={{ backgroundColor: "orange" }} />
       <button ref={ref2} />
     </DotBtnContainer>
   );
