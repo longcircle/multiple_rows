@@ -3,9 +3,11 @@ import React, { useRef } from "react";
 
 const InnerBlock = styled.div`
   position: relative;
-  width: 100%;
+  float: left;
+  width: 28vw;
   height: 236px;
-  &:first-child {
+  margin-left: 29px;
+  &:nth-child(-n + 6) {
     margin-bottom: 29px;
   }
   & a {
@@ -45,38 +47,29 @@ const InnerBlock = styled.div`
   }
 `;
 
-const InnerContainerBlock = styled.div`
-  float: left;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  width: 28vw;
-  height: 100%;
-  margin-left: 29px;
-  /* &:not(:nth-child(3n)) {
-    margin-right: 29px;
-  } */
-`;
+// const InnerContainerBlock = styled.div`
+//   float: left;
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+//   width: 28vw;
+//   height: 100%;
+//   margin-left: 29px;
+//   &:not(:nth-child(3n)) {
+//     margin-right: 29px;
+//   }
+// `;
 
 const InnerContainer = ({ info }) => {
-  const { title1, title2, addr1, addr2, src1, src2 } = info;
+  const { title, addr, src } = info;
   return (
-    <InnerContainerBlock>
-      <InnerBlock>
-        <img src={src1} alt="" />
-        <a href="about:blank">
-          <span>{title1}</span>
-          <p>{addr1}</p>
-        </a>
-      </InnerBlock>
-      <InnerBlock>
-        <img src={src2} alt="" />
-        <a href="about:blank">
-          <span>{title2}</span>
-          <p>{addr2}</p>
-        </a>
-      </InnerBlock>
-    </InnerContainerBlock>
+    <InnerBlock>
+      <img src={src} alt="" />
+      <a href="about:blank">
+        <span>{title}</span>
+        <p>{addr}</p>
+      </a>
+    </InnerBlock>
   );
 };
 

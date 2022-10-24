@@ -26,6 +26,7 @@ const BodyBlock = styled.div`
 `;
 
 const CarouselBlock = styled.section`
+  /* display: inline; */
   box-sizing: border-box;
   position: absolute;
   width: 200vw;
@@ -41,6 +42,9 @@ const Carousel = ({ title, more, info, hidden }) => {
   const Dot2 = useRef();
   const Body = useRef();
   const [nowX, setNowX] = useState(0);
+  const arr = info.map((content) => (
+    <InnerContainer key={content.textId} info={content} />
+  ));
   // console.log(InnerContainer);
 
   // let width = Body.current.offsetWidth;
@@ -49,7 +53,12 @@ const Carousel = ({ title, more, info, hidden }) => {
     container_Carousel.current.style.transform = `translateX(${nowX}px)`;
   }, [nowX]);
 
-  // useState 말고 useEffect를 이용해야할듯.
+  useEffect(() => {
+    container_Carousel.current.style.width = `calc((${
+      arr.length * 28 + arr.length * 1.5 + 23
+    }vw)/2)`;
+  }, []);
+
   const Button = (e) => {
     if (parseInt(e.target.value) === 0) {
       setNowX((prop) => 0);
@@ -62,6 +71,8 @@ const Carousel = ({ title, more, info, hidden }) => {
       Dot1.current.style.backgroundColor = "";
     }
   };
+
+  console.log(arr.length);
   return (
     <ContainerBlock>
       <ModuleTitle title={title} more={more} />
