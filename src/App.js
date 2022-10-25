@@ -10,6 +10,7 @@ import { Editor } from "./List/Editor";
 import { TV } from "./List/TV";
 import { HighRate } from "./List/HighRate";
 import { Image } from "./carousel/Json/Image1";
+import ApiData from "./carousel/ApiLoad";
 
 const Badge = styled.i`
   position: absolute;
@@ -34,6 +35,7 @@ const App = () => {
       <List title="EAT딜을 판매 중인 식당" info={EatDeal}>
         <Badge />
       </List>
+      <ApiData />
       {/* <List title="에디터가 선정한 식당" info={Editor} />
       <List title="TV에 나온 식당" info={TV} />
       <List title="평점이 높은 인기 식당" info={HighRate} />
