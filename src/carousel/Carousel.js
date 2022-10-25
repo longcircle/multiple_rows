@@ -20,7 +20,7 @@ const BodyBlock = styled.div`
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
-  width: 88.6vw;
+
   height: 501px;
   margin: 10px 90px auto;
 `;
@@ -29,7 +29,7 @@ const CarouselBlock = styled.section`
   /* display: inline; */
   box-sizing: border-box;
   position: absolute;
-  width: 200vw;
+  width: ${(props) => props.width};
   left: 0;
   top: 0;
   height: 100%;
@@ -45,9 +45,6 @@ const Carousel = ({ title, more, info, hidden }) => {
   const arr = info.map((content) => (
     <InnerContainer key={content.textId} info={content} />
   ));
-  // console.log(InnerContainer);
-
-  // let width = Body.current.offsetWidth;
 
   useEffect(() => {
     container_Carousel.current.style.transform = `translateX(${nowX}px)`;
@@ -55,8 +52,11 @@ const Carousel = ({ title, more, info, hidden }) => {
 
   useEffect(() => {
     container_Carousel.current.style.width = `calc((${
-      arr.length * 28 + arr.length * 1.5 + 23
+      arr.length * 28 + arr.length * 1.5 + 24
     }vw)/2)`;
+    Body.current.style.width = `clac(${
+      container_Carousel.current.offsetWidth / 2
+    })`;
   }, []);
 
   const Button = (e) => {
@@ -72,7 +72,6 @@ const Carousel = ({ title, more, info, hidden }) => {
     }
   };
 
-  console.log(arr.length);
   return (
     <ContainerBlock>
       <ModuleTitle title={title} more={more} />
@@ -81,14 +80,20 @@ const Carousel = ({ title, more, info, hidden }) => {
       ) : (
         <SlideBtn onClick={Button} value={0} direction="left" hidden={hidden} />
       )}
-      <BodyBlock ref={Body}>
-        <CarouselBlock ref={container_Carousel}>
+      <BodyBlock
+        ref={Body}
+        // width={`clac(${container_Carousel.current.offsetWidth / 2})`}
+      >
+        <CarouselBlock
+          ref={container_Carousel}
+          width={`calc((${arr.length * 28 + arr.length * 1.5 + 24}vw)/2)`}
+        >
           {info.map((content) => (
             <InnerContainer key={content.textId} info={content} />
           ))}
         </CarouselBlock>
       </BodyBlock>
-      <DotBtn ref1={Dot1} ref2={Dot2} hidden={hidden} />
+      <DotBtn ref1={Dot1} ref2={Dot2} onClick={Button} hidden={hidden} />
     </ContainerBlock>
   );
 };

@@ -28,11 +28,16 @@ const DotBtnContainer = styled.div`
     `}
 `;
 
-const DotBtn = ({ ref1, ref2, hidden }) => {
+const DotBtn = ({ ref1, ref2, hidden, onClick }) => {
   return (
     <DotBtnContainer hidden={hidden}>
-      <button ref={ref1} style={{ backgroundColor: "orange" }} />
-      <button ref={ref2} />
+      <button
+        ref={ref1}
+        onClick={onClick}
+        style={{ backgroundColor: "orange" }}
+        value={0}
+      />
+      <button ref={ref2} onClick={onClick} value={-1} />
     </DotBtnContainer>
   );
 };
