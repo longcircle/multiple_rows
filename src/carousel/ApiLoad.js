@@ -24,9 +24,9 @@ const ApiData = () => {
       setLoading(false);
     };
     fetchData();
-    console.log(data);
   }, []);
-
+  console.log(data);
+  console.log(Image);
   // 대기 중일 때
   if (loading) {
     return <ContainerBlock>대기 중…</ContainerBlock>;
@@ -34,10 +34,11 @@ const ApiData = () => {
   if (!data) {
     return null;
   }
+
   return (
     <div>
       {List(data, Image).map((content) => (
-        <InnerContainer key={content.textId} info={content} />
+        <InnerContainer key={content.상호} info={content} />
       ))}
     </div>
   );
