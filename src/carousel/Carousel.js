@@ -4,6 +4,8 @@ import styled from "styled-components";
 import SlideBtn from "./SlideBtn";
 import DotBtn from "./DotBtn";
 import ModuleTitle from "../ModuleTitle";
+import { Image } from "./Json/Image1";
+import { List } from "./function/ListFunc";
 
 const ContainerBlock = styled.div`
   margin: 0;
@@ -15,7 +17,6 @@ const ContainerBlock = styled.div`
   border-top: 1px solid #dbdbdb;
   padding: 38px 0 36px 0;
 `;
-
 const BodyBlock = styled.div`
   box-sizing: border-box;
   position: relative;
@@ -24,7 +25,6 @@ const BodyBlock = styled.div`
   height: 501px;
   margin: 10px 90px auto;
 `;
-
 const CarouselBlock = styled.section`
   /* display: inline; */
   box-sizing: border-box;
@@ -42,24 +42,21 @@ const Carousel = ({ title, more, info, hidden }) => {
   const Dot2 = useRef();
   const Body = useRef();
   const [nowX, setNowX] = useState(0);
-  const arr = info.map((content) => (
-    <InnerContainer key={content.textId} info={content} />
-  ));
-
+  const arr = info.length;
   useEffect(() => {
     container_Carousel.current.style.transform = `translateX(${nowX}px)`;
   }, [nowX]);
 
   useEffect(() => {
     container_Carousel.current.style.width = `calc((${
-      arr.length * 28 + arr.length * 1.5 + 24
+      arr * 28 + arr * 1.5 + 24
     }vw)/2)`;
     Body.current.style.width = `clac(${
       container_Carousel.current.offsetWidth / 2
     })`;
   }, []);
 
-  const Button = (e) => {
+  const onClick = (e) => {
     if (parseInt(e.target.value) === 0) {
       setNowX((prop) => 0);
       Dot1.current.style.backgroundColor = "orange";
@@ -76,24 +73,23 @@ const Carousel = ({ title, more, info, hidden }) => {
     <ContainerBlock>
       <ModuleTitle title={title} more={more} />
       {nowX === 0 ? (
-        <SlideBtn onClick={Button} value={-1} hidden={hidden} />
+        <SlideBtn onClick={onClick} value={-1} hidden={hidden} />
       ) : (
-        <SlideBtn onClick={Button} value={0} direction="left" hidden={hidden} />
+        <SlideBtn
+          onClick={onClick}
+          value={0}
+          direction="left"
+          hidden={hidden}
+        />
       )}
-      <BodyBlock
-        ref={Body}
-        // width={`clac(${container_Carousel.current.offsetWidth / 2})`}
-      >
-        <CarouselBlock
-          ref={container_Carousel}
-          width={`calc((${arr.length * 28 + arr.length * 1.5 + 24}vw)/2)`}
-        >
-          {info.map((content) => (
+      <BodyBlock ref={Body}>
+        <CarouselBlock ref={container_Carousel}>
+          {List(info, Image).map((content) => (
             <InnerContainer key={content.textId} info={content} />
           ))}
         </CarouselBlock>
       </BodyBlock>
-      <DotBtn ref1={Dot1} ref2={Dot2} onClick={Button} hidden={hidden} />
+      <DotBtn ref1={Dot1} ref2={Dot2} onClick={onClick} hidden={hidden} />
     </ContainerBlock>
   );
 };

@@ -2,13 +2,14 @@ import React from "react";
 import Carousel from "./carousel/Carousel";
 import List from "./List/List";
 import styled from "styled-components";
-import { Info } from "./carousel/Info";
-import { Info2 } from "./carousel/Info2";
-import { Info3 } from "./carousel/Info3";
+import { Info } from "./carousel/Json/Info";
+import { Info2 } from "./carousel/Json/Info2";
+import { Info3 } from "./carousel/Json/Info3";
 import { EatDeal } from "./List/EatDeal";
 import { Editor } from "./List/Editor";
 import { TV } from "./List/TV";
 import { HighRate } from "./List/HighRate";
+import { Image } from "./carousel/Json/Image1";
 
 const Badge = styled.i`
   position: absolute;
@@ -28,15 +29,16 @@ const App = () => {
         title="믿고 보는 맛집리스트"
         more="리스트 더보기"
         info={Info}
+        image={Image}
       ></Carousel>
       <List title="EAT딜을 판매 중인 식당" info={EatDeal}>
         <Badge />
       </List>
-      <List title="에디터가 선정한 식당" info={Editor} />
+      {/* <List title="에디터가 선정한 식당" info={Editor} />
       <List title="TV에 나온 식당" info={TV} />
       <List title="평점이 높은 인기 식당" info={HighRate} />
       <Carousel title="지역별 인기 맛집" info={Info3} hidden={true} />
-      <Carousel title="메뉴별 인기 맛집" info={Info2}></Carousel>
+      <Carousel title="메뉴별 인기 맛집" info={Info2}></Carousel> */}
     </div>
   );
 };
