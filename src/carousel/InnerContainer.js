@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import React, { useRef } from "react";
 
 const InnerBlock = styled.div`
   position: relative;
@@ -61,13 +60,13 @@ const InnerBlock = styled.div`
 // `;
 
 const InnerContainer = ({ info }) => {
-  const { title, addr, src } = info;
+  const { 상호, 도로명주소, src } = info;
   return (
     <InnerBlock>
       <img src={src} alt="" />
       <a href="about:blank">
-        <span>{title}</span>
-        <p>{addr}</p>
+        <span>{상호}</span>
+        <p>{도로명주소}</p>
       </a>
     </InnerBlock>
   );

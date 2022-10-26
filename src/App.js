@@ -1,15 +1,14 @@
 import React from "react";
 import Carousel from "./carousel/Carousel";
-import List from "./List/List";
+import List from "./contentsList/List";
 import styled from "styled-components";
-import { Info } from "./carousel/Json/Info";
-import { Info2 } from "./carousel/Json/Info2";
-import { Info3 } from "./carousel/Json/Info3";
-import { EatDeal } from "./List/EatDeal";
-import { Editor } from "./List/Editor";
-import { TV } from "./List/TV";
-import { HighRate } from "./List/HighRate";
-import { Image } from "./carousel/Json/Image1";
+import { EatDeal } from "./contentsList/EatDeal";
+import { Editor } from "./contentsList/Editor";
+import { TV } from "./contentsList/TV";
+import { HighRate } from "./contentsList/HighRate";
+import { Image } from "./carousel/imageJson/Image1";
+import { Image2 } from "./carousel/imageJson/Image2";
+import { Image3 } from "./carousel/imageJson/Image3";
 import ApiData from "./carousel/ApiLoad";
 
 const Badge = styled.i`
@@ -26,21 +25,21 @@ const Badge = styled.i`
 const App = () => {
   return (
     <div>
-      <Carousel
-        title="믿고 보는 맛집리스트"
-        more="리스트 더보기"
-        info={Info}
-        image={Image}
-      ></Carousel>
+      <Carousel title="믿고 보는 맛집리스트" more="리스트 더보기">
+        <ApiData page="1" perPage="12" imagedata={Image} />
+      </Carousel>
       <List title="EAT딜을 판매 중인 식당" info={EatDeal}>
         <Badge />
       </List>
-      <ApiData />
-      {/* <List title="에디터가 선정한 식당" info={Editor} />
+      <List title="에디터가 선정한 식당" info={Editor} />
       <List title="TV에 나온 식당" info={TV} />
       <List title="평점이 높은 인기 식당" info={HighRate} />
-      <Carousel title="지역별 인기 맛집" info={Info3} hidden={true} />
-      <Carousel title="메뉴별 인기 맛집" info={Info2}></Carousel> */}
+      <Carousel title="지역별 인기 맛집" hidden={true}>
+        <ApiData page="5" perPage="6" imagedata={Image2} />
+      </Carousel>
+      <Carousel title="메뉴별 인기 맛집">
+        <ApiData page="2" perPage="12" imagedata={Image3} />
+      </Carousel>
     </div>
   );
 };
